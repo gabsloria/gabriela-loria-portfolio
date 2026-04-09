@@ -1,0 +1,53 @@
+/*Basic Reset*/
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*Remove default list styling*/
+ul,
+ol {
+  list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+/*Reset links*/
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/*Reset images*/
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/*Reset buttons*/
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/*Reset Inputs*/
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/*Set default smooth scroll*/
+html {
+  scroll-behavior: smooth;
+}

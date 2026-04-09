@@ -1,0 +1,83 @@
+// ---- Breakpoints ----
+$break-sm: 480px;     // Small devices (bigger phones)
+$break-md: 768px;     // Tablets
+$break-lg: 1024px;    // Small laptops
+$break-xl: 1280px;    // Desktops
+$break-xxl: 1440px;   // Large desktops / wide screens
+
+// ---- Base Mixin ----
+@mixin respond($breakpoint) {
+  @media (min-width: $breakpoint) {
+    @content;
+  }
+}
+
+// ---- Individual Mixins ----
+@mixin sm {
+  @include respond($break-sm) {
+    @content;
+  }
+}
+
+@mixin md {
+  @include respond($break-md) {
+    @content;
+  }
+}
+
+@mixin lg {
+  @include respond($break-lg) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @include respond($break-xl) {
+    @content;
+  }
+}
+
+@mixin xxl {
+  @include respond($break-xxl) {
+    @content;
+  }
+}
+
+// Mixin to hide or show depending on resolution
+
+// Large Desktop (1440px+)
+@mixin only-large-desktop {
+  @media (min-width: $break-xxl) {
+    @content;
+  }
+}
+
+// Desktop (1280px - 1439px)
+@mixin only-desktop {
+  @media (min-width: $break-xl) and (max-width: ($break-xxl - 1)) {
+    @content;
+  }
+}
+
+// Small Laptops (1024px - 1279px)
+@mixin only-small-laptops {
+  @media (min-width: $break-lg) and (max-width: ($break-xl - 1)) {
+    @content;
+  }
+}
+
+// Tablets (768px - 1023px)
+@mixin only-tablet {
+  @media (min-width: $break-md) and (max-width: ($break-lg - 1)) {
+    @content;
+  }
+}
+
+// Mobile (0 - 767px)
+@mixin only-mobile {
+  @media (max-width: ($break-md - 1)) {
+    @content;
+  }
+}
+
+
