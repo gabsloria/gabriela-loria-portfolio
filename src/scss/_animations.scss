@@ -1,0 +1,10 @@
+//Home Text and Photo
+.home-text-wrapper > * {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.home-img-container img {
+  opacity: 0;
+  transform: translateY(60px) scale(0.95);
+}

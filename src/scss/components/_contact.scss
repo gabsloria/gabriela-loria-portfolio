@@ -1,0 +1,1777 @@
+@use "../variables";
+@use "../mixins";
+
+// MOBILE (0 - 767px)
+@include mixins.only-mobile {
+  .contact {
+    padding: 12px 0 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #f5f7ff 0%, #eef1ff 40%, #e6e9ff 100%);
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  .container-contact {
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .title-contact {
+    margin-top: 12px;
+    color: variables.$color-black;
+    text-align: center;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    text-shadow:
+      4px 4px 4px rgba(0, 0, 0, 0.2),
+      -4px -4px 4px #ffffff;
+  }
+
+  .subtitle-contact {
+    text-align: center;
+    margin: 8px auto 25px auto;
+    font-size: clamp(0.7rem, 2.2vw, 1.6rem);
+    width: 80%;
+    font-weight: 400;
+  }
+
+  .container-contact-form-and-btns {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* ----  Form ----  */
+
+  .container-form {
+    width: 95%;
+    max-width: 700px;
+    box-shadow:
+      6px 6px 12px #c5c5c5,
+      -6px -6px 12px #ffffff;
+  }
+
+  .contact-form {
+    width: 100%;
+    margin: auto;
+    padding: 25px;
+    border-radius: 10px;
+  }
+
+  .contact-form h2 {
+    margin-bottom: 5px;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  label {
+    display: block;
+    font-size: 13px;
+    margin-bottom: 5px;
+  }
+
+  input,
+  textarea,
+  select {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    max-height: 300px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    box-shadow:
+      inset 6px 6px 6px rgba(0, 0, 0, 0.2),
+      inset -6px -6px 8px #ffffff;
+  }
+
+  /* ----- BTN Send ---- */
+
+  .btn-send-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .contact-btn-send {
+    width: 135px;
+    height: 40px;
+    font-size: 13px;
+    font-family: "Quicksand", sans-serif;
+    font-weight: 500;
+    color: variables.$color-white;
+
+    /* Fill */
+    background-size: 201% 100%;
+    background-image: linear-gradient(
+      to right,
+      variables.$color-secundary 50%,
+      variables.$color-primary 50%
+    );
+    background-position: 100% 0;
+
+    box-shadow:
+      3px 3px 6px #adb0b5,
+      -3px -3px 6px #ffffff;
+
+    border: none;
+    border-radius: 3px;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    align-items: center;
+    gap: 8px;
+
+    transition:
+      background-position 0.6s ease-out,
+      color 0.3s ease;
+  }
+
+  .contact-btn-send:focus {
+    outline: none;
+    color: variables.$color-white;
+  }
+
+  /* ---- Text ---- */
+
+  .contact-btn-send .text {
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ---- Icons ---- */
+
+  .contact-btn-send-icon {
+    position: relative;
+    z-index: 2;
+  }
+
+  .contact-btn-send-icon svg {
+    width: 13px;
+    height: 13px;
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 0 currentColor) drop-shadow(0 0 0 currentColor);
+  }
+
+  /* ---- States ---- */
+
+  .spaceship {
+    position: absolute;
+    right: 18px;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .visible {
+    display: inline-flex;
+  }
+
+  .done {
+    background-position: 0 0;
+    color: variables.$color-purple-light;
+  }
+
+  /* ---- Animations triggers ---- */
+
+  .fly {
+    position: absolute;
+    animation: flyAnim 1.5s ease-in forwards;
+  }
+
+  .fade {
+    animation: fade 0.6s forwards;
+  }
+
+  /* ---- Check animation ---- */
+
+  .check {
+    opacity: 0;
+    transform: translateY(6px) scale(0.8);
+  }
+
+  .show-check {
+    animation: checkIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
+  /* ---- KEYFRAMES ---- */
+
+  @keyframes fade {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes flyAnim {
+    0% {
+      top: 10px;
+      left: 70px;
+    }
+    100% {
+      top: -1000px;
+      left: 1000px;
+      transform: scale(0.3);
+      opacity: 0;
+    }
+  }
+
+  @keyframes checkIn {
+    0% {
+      opacity: 0;
+      transform: translateY(6px) scale(0.8);
+    }
+    60% {
+      opacity: 1;
+      transform: translateY(-2px) scale(1.1);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  .container-contact-info-social-btns {
+    width: 95%;
+    max-width: 700px;
+    margin-top: 20px;
+  }
+
+  // BTNS Contact
+
+  .contact-info-btns {
+    width: 100%;
+    text-align: left;
+  }
+
+  .contact-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .contact-btn .icon {
+    background-color: variables.$color-primary;
+    color: variables.$color-purple-light;
+    padding: 8px;
+    border-radius: 50%;
+  }
+
+  .contact-btn .icon svg {
+    display: block;
+    width: 16px;
+    aspect-ratio: 1/1;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .contact-btn-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.4;
+  }
+
+  .contact-btn-text .label {
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .contact-btn-text .number {
+    font-size: 14px;
+  }
+
+  // BTNS Contact Social
+
+  .contact-social {
+    width: 100%;
+    margin: 20px 0px;
+    text-align: left;
+  }
+
+  .contact-social__title {
+    font-size: clamp(1.4rem, 2vw, 1.6rem);
+    margin-bottom: 20px;
+  }
+
+  .container-contact-social-btns {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+  }
+
+  .contact-social-btn {
+    background-color: #e6ebf1;
+    border-radius: 150px;
+    box-shadow:
+      5px 5px 10px #adb0b5,
+      -5px -5px 10px #ffffff;
+    width: 44px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    padding: 10px;
+  }
+
+  .contact-social__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .contact-social__icon svg {
+    color: variables.$color-primary;
+  }
+}
+
+//TABLETS (768px - 1023px)
+@include mixins.only-tablet {
+  .contact {
+    padding: 12px 0 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #f5f7ff 0%, #eef1ff 40%, #e6e9ff 100%);
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  .container-contact {
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .title-contact {
+    margin-top: 12px;
+    color: variables.$color-black;
+    text-align: center;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    text-shadow:
+      4px 4px 4px rgba(0, 0, 0, 0.2),
+      -4px -4px 4px #ffffff;
+  }
+
+  .subtitle-contact {
+    text-align: center;
+    margin: 8px auto 25px auto;
+    font-size: clamp(0.7rem, 2.2vw, 1.6rem);
+    width: 80%;
+    font-weight: 400;
+  }
+
+  .container-contact-form-and-btns {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+    padding: 20px;
+  }
+
+  /* ----  Form ----  */
+
+  .container-form {
+    width: 55%;
+    max-width: 700px;
+    box-shadow:
+      6px 6px 12px #c5c5c5,
+      -6px -6px 12px #ffffff;
+  }
+
+  .contact-form {
+    width: 100%;
+    margin: auto;
+    padding: 25px;
+    border-radius: 10px;
+  }
+
+  .contact-form h2 {
+    margin-bottom: 5px;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  label {
+    display: block;
+    font-size: 13px;
+    margin-bottom: 5px;
+  }
+
+  input,
+  textarea,
+  select {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    max-height: 300px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    box-shadow:
+      inset 6px 6px 6px rgba(0, 0, 0, 0.2),
+      inset -6px -6px 8px #ffffff;
+  }
+
+  /* ----- BTN Send ---- */
+
+  .btn-send-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .contact-btn-send {
+    width: 135px;
+    height: 40px;
+    font-size: 13px;
+    font-family: "Quicksand", sans-serif;
+    font-weight: 500;
+    color: variables.$color-white;
+
+    /* Fill */
+    background-size: 201% 100%;
+    background-image: linear-gradient(
+      to right,
+      variables.$color-secundary 50%,
+      variables.$color-primary 50%
+    );
+    background-position: 100% 0;
+
+    box-shadow:
+      3px 3px 6px #adb0b5,
+      -3px -3px 6px #ffffff;
+
+    border: none;
+    border-radius: 3px;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    align-items: center;
+    gap: 8px;
+
+    transition:
+      background-position 0.6s ease-out,
+      color 0.3s ease;
+  }
+
+  .contact-btn-send:focus {
+    outline: none;
+    color: variables.$color-white;
+  }
+
+  /* ---- Text ---- */
+
+  .contact-btn-send .text {
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ---- Icons ---- */
+
+  .contact-btn-send-icon {
+    position: relative;
+    z-index: 2;
+  }
+
+  .contact-btn-send-icon svg {
+    width: 13px;
+    height: 13px;
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 0 currentColor) drop-shadow(0 0 0 currentColor);
+  }
+
+  /* ---- States ---- */
+
+  .spaceship {
+    position: absolute;
+    right: 18px;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .visible {
+    display: inline-flex;
+  }
+
+  .done {
+    background-position: 0 0;
+    color: variables.$color-purple-light;
+  }
+
+  /* ---- Animations triggers ---- */
+
+  .fly {
+    position: absolute;
+    animation: flyAnim 1.5s ease-in forwards;
+  }
+
+  .fade {
+    animation: fade 0.6s forwards;
+  }
+
+  /* ---- Check animation ---- */
+
+  .check {
+    opacity: 0;
+    transform: translateY(6px) scale(0.8);
+  }
+
+  .show-check {
+    animation: checkIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
+  /* ---- KEYFRAMES ---- */
+
+  @keyframes fade {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes flyAnim {
+    0% {
+      top: 10px;
+      left: 70px;
+    }
+    100% {
+      top: -1000px;
+      left: 1000px;
+      transform: scale(0.3);
+      opacity: 0;
+    }
+  }
+
+  @keyframes checkIn {
+    0% {
+      opacity: 0;
+      transform: translateY(6px) scale(0.8);
+    }
+    60% {
+      opacity: 1;
+      transform: translateY(-2px) scale(1.1);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  .container-contact-info-social-btns {
+    width: 45%;
+    margin-top: 20px;
+  }
+
+  // BTNS Contact
+
+  .contact-info-btns {
+    width: 100%;
+    text-align: left;
+  }
+
+  .contact-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 30px;
+  }
+
+  .contact-btn .icon {
+    width: 55px;
+    aspect-ratio: 1/1;
+    background-color: variables.$color-primary;
+    color: variables.$color-purple-light;
+    padding: 8px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .contact-btn .icon svg {
+    display: block;
+    width: 26px;
+    aspect-ratio: 1/1;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .contact-btn-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.4;
+  }
+
+  .contact-btn-text .label {
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .contact-btn-text .number {
+    font-size: 14px;
+  }
+
+  // BTNS Contact Social
+
+  .contact-social {
+    width: 100%;
+    margin: 50px 0px;
+    text-align: left;
+  }
+
+  .contact-social__title {
+    font-size: clamp(1.4rem, 2vw, 1.6rem);
+    margin-bottom: 20px;
+  }
+
+  .container-contact-social-btns {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+  }
+
+  .contact-social-btn {
+    background-color: #e6ebf1;
+    border-radius: 150px;
+    box-shadow:
+      5px 5px 10px #adb0b5,
+      -5px -5px 10px #ffffff;
+    width: 44px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    padding: 10px;
+  }
+
+  .contact-social__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .contact-social__icon svg {
+    color: variables.$color-primary;
+  }
+}
+
+//SMALL LAPTOPS (1024px - 1279px)
+@include mixins.only-small-laptops {
+  .contact {
+    padding: 12px 0 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #f5f7ff 0%, #eef1ff 40%, #e6e9ff 100%);
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  .container-contact {
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .title-contact {
+    margin-top: 12px;
+    color: variables.$color-black;
+    text-align: center;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    text-shadow:
+      4px 4px 4px rgba(0, 0, 0, 0.2),
+      -4px -4px 4px #ffffff;
+  }
+
+  .subtitle-contact {
+    text-align: center;
+    margin: 8px auto 25px auto;
+    font-size: clamp(0.7rem, 2.2vw, 1.6rem);
+    width: 80%;
+    font-weight: 400;
+  }
+
+  .container-contact-form-and-btns {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 80px;
+    padding: 40px;
+  }
+
+  /* ----  Form ----  */
+
+  .container-form {
+    width: 55%;
+    max-width: 700px;
+    box-shadow:
+      6px 6px 12px #c5c5c5,
+      -6px -6px 12px #ffffff;
+  }
+
+  .contact-form {
+    width: 100%;
+    margin: auto;
+    padding: 25px;
+    border-radius: 10px;
+  }
+
+  .contact-form h2 {
+    margin-bottom: 5px;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  label {
+    display: block;
+    font-size: 13px;
+    margin-bottom: 5px;
+  }
+
+  input,
+  textarea,
+  select {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    max-height: 300px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    box-shadow:
+      inset 6px 6px 6px rgba(0, 0, 0, 0.2),
+      inset -6px -6px 8px #ffffff;
+  }
+
+  /* ----- BTN Send ---- */
+
+  .btn-send-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .contact-btn-send {
+    width: 135px;
+    height: 40px;
+    font-size: 13px;
+    font-family: "Quicksand", sans-serif;
+    font-weight: 500;
+    color: variables.$color-white;
+
+    /* Fill */
+    background-size: 201% 100%;
+    background-image: linear-gradient(
+      to right,
+      variables.$color-secundary 50%,
+      variables.$color-primary 50%
+    );
+    background-position: 100% 0;
+
+    box-shadow:
+      3px 3px 6px #adb0b5,
+      -3px -3px 6px #ffffff;
+
+    border: none;
+    border-radius: 3px;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    align-items: center;
+    gap: 8px;
+
+    transition:
+      background-position 0.6s ease-out,
+      color 0.3s ease,
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .contact-btn-send:hover {
+    transform: scale(1.05);
+  }
+
+  .contact-btn-send:focus {
+    outline: none;
+    color: variables.$color-white;
+  }
+
+  /* ---- Text ---- */
+
+  .contact-btn-send .text {
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ---- Icons ---- */
+
+  .contact-btn-send-icon {
+    position: relative;
+    z-index: 2;
+  }
+
+  .contact-btn-send-icon svg {
+    width: 13px;
+    height: 13px;
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 0 currentColor) drop-shadow(0 0 0 currentColor);
+  }
+
+  /* ---- States ---- */
+
+  .spaceship {
+    position: absolute;
+    right: 18px;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .visible {
+    display: inline-flex;
+  }
+
+  .done {
+    background-position: 0 0;
+    color: variables.$color-purple-light;
+  }
+
+  /* ---- Animations triggers ---- */
+
+  .fly {
+    position: absolute;
+    animation: flyAnim 1.5s ease-in forwards;
+  }
+
+  .fade {
+    animation: fade 0.6s forwards;
+  }
+
+  /* ---- Check animation ---- */
+
+  .check {
+    opacity: 0;
+    transform: translateY(6px) scale(0.8);
+  }
+
+  .show-check {
+    animation: checkIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
+  /* ---- KEYFRAMES ---- */
+
+  @keyframes fade {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes flyAnim {
+    0% {
+      top: 10px;
+      left: 70px;
+    }
+    100% {
+      top: -1000px;
+      left: 1000px;
+      transform: scale(0.3);
+      opacity: 0;
+    }
+  }
+
+  @keyframes checkIn {
+    0% {
+      opacity: 0;
+      transform: translateY(6px) scale(0.8);
+    }
+    60% {
+      opacity: 1;
+      transform: translateY(-2px) scale(1.1);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  .container-contact-info-social-btns {
+    width: 45%;
+    margin-top: 20px;
+  }
+
+  // BTNS Contact
+
+  .contact-info-btns {
+    width: 100%;
+    text-align: left;
+  }
+
+  .contact-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 30px;
+    border-left: 4px solid transparent;
+    transition:
+      border-color 0.3s ease,
+      padding-left 0.3s ease;
+  }
+
+  .contact-btn:hover {
+    border-left: 4px solid variables.$color-primary;
+    padding-left: 8px;
+  }
+
+  .contact-btn .icon {
+    width: 55px;
+    aspect-ratio: 1/1;
+    background-color: variables.$color-primary;
+    color: variables.$color-purple-light;
+    padding: 8px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .contact-btn .icon svg {
+    display: block;
+    width: 26px;
+    aspect-ratio: 1/1;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .contact-btn-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.4;
+  }
+
+  .contact-btn-text .label {
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .contact-btn-text .number {
+    font-size: 14px;
+  }
+
+  // BTNS Contact Social
+
+  .contact-social {
+    width: 100%;
+    margin: 50px 0px;
+    text-align: left;
+  }
+
+  .contact-social__title {
+    font-size: clamp(1.4rem, 2vw, 1.6rem);
+    margin-bottom: 20px;
+  }
+
+  .container-contact-social-btns {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+  }
+
+  .contact-social-btn {
+    background-color: #e6ebf1;
+    border-radius: 150px;
+    box-shadow:
+      5px 5px 10px #adb0b5,
+      -5px -5px 10px #ffffff;
+    width: 44px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    padding: 10px;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .contact-social-btn:hover {
+    transform: scale(1.2);
+  }
+
+  .contact-social__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .contact-social__icon svg {
+    color: variables.$color-primary;
+  }
+}
+
+//DESKTOP (1280px - 1439px)
+@include mixins.only-desktop {
+  .contact {
+    padding: 12px 0 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #f5f7ff 0%, #eef1ff 40%, #e6e9ff 100%);
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  .container-contact {
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .title-contact {
+    margin-top: 100px;
+    color: variables.$color-black;
+    text-align: center;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    text-shadow:
+      4px 4px 4px rgba(0, 0, 0, 0.2),
+      -4px -4px 4px #ffffff;
+  }
+
+  .subtitle-contact {
+    text-align: center;
+    margin: 8px auto 25px auto;
+    font-size: clamp(0.7rem, 2.2vw, 1.6rem);
+    width: 80%;
+    font-weight: 400;
+  }
+
+  .container-contact-form-and-btns {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 80px;
+    padding: 40px;
+  }
+
+  /* ----  Form ----  */
+
+  .container-form {
+    width: 55%;
+    max-width: 700px;
+    box-shadow:
+      6px 6px 12px #c5c5c5,
+      -6px -6px 12px #ffffff;
+  }
+
+  .contact-form {
+    width: 100%;
+    margin: auto;
+    padding: 25px;
+    border-radius: 10px;
+  }
+
+  .contact-form h2 {
+    margin-bottom: 5px;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  label {
+    display: block;
+    font-size: 13px;
+    margin-bottom: 5px;
+  }
+
+  input,
+  textarea,
+  select {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    max-height: 300px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    box-shadow:
+      inset 6px 6px 6px rgba(0, 0, 0, 0.2),
+      inset -6px -6px 8px #ffffff;
+  }
+
+  /* ----- BTN Send ---- */
+
+  .btn-send-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .contact-btn-send {
+    width: 135px;
+    height: 40px;
+    font-size: 13px;
+    font-family: "Quicksand", sans-serif;
+    font-weight: 500;
+    color: variables.$color-white;
+
+    /* Fill */
+    background-size: 201% 100%;
+    background-image: linear-gradient(
+      to right,
+      variables.$color-secundary 50%,
+      variables.$color-primary 50%
+    );
+    background-position: 100% 0;
+
+    box-shadow:
+      3px 3px 6px #adb0b5,
+      -3px -3px 6px #ffffff;
+
+    border: none;
+    border-radius: 3px;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    align-items: center;
+    gap: 8px;
+
+    transition:
+      background-position 0.6s ease-out,
+      color 0.3s ease,
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .contact-btn-send:hover {
+    transform: scale(1.05);
+  }
+
+  .contact-btn-send:focus {
+    outline: none;
+    color: variables.$color-white;
+  }
+
+  /* ---- Text ---- */
+
+  .contact-btn-send .text {
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ---- Icons ---- */
+
+  .contact-btn-send-icon {
+    position: relative;
+    z-index: 2;
+  }
+
+  .contact-btn-send-icon svg {
+    width: 13px;
+    height: 13px;
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 0 currentColor) drop-shadow(0 0 0 currentColor);
+  }
+
+  /* ---- States ---- */
+
+  .spaceship {
+    position: absolute;
+    right: 18px;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .visible {
+    display: inline-flex;
+  }
+
+  .done {
+    background-position: 0 0;
+    color: variables.$color-purple-light;
+  }
+
+  /* ---- Animations triggers ---- */
+
+  .fly {
+    position: absolute;
+    animation: flyAnim 1.5s ease-in forwards;
+  }
+
+  .fade {
+    animation: fade 0.6s forwards;
+  }
+
+  /* ---- Check animation ---- */
+
+  .check {
+    opacity: 0;
+    transform: translateY(6px) scale(0.8);
+  }
+
+  .show-check {
+    animation: checkIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
+  /* ---- KEYFRAMES ---- */
+
+  @keyframes fade {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes flyAnim {
+    0% {
+      top: 10px;
+      left: 70px;
+    }
+    100% {
+      top: -1000px;
+      left: 1000px;
+      transform: scale(0.3);
+      opacity: 0;
+    }
+  }
+
+  @keyframes checkIn {
+    0% {
+      opacity: 0;
+      transform: translateY(6px) scale(0.8);
+    }
+    60% {
+      opacity: 1;
+      transform: translateY(-2px) scale(1.1);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  .container-contact-info-social-btns {
+    width: 45%;
+    margin-top: 20px;
+  }
+
+  // BTNS Contact
+
+  .contact-info-btns {
+    width: 100%;
+    text-align: left;
+  }
+
+  .contact-btn {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 30px;
+    border-left: 4px solid transparent;
+    transition:
+      border-color 0.3s ease,
+      padding-left 0.3s ease;
+  }
+
+  .contact-btn:hover {
+    border-left: 4px solid variables.$color-primary;
+    padding-left: 8px;
+  }
+
+  .contact-btn .icon {
+    width: 50px;
+    aspect-ratio: 1/1;
+    background-color: variables.$color-primary;
+    color: variables.$color-purple-light;
+    padding: 8px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .contact-btn .icon svg {
+    display: block;
+    width: 30px;
+    aspect-ratio: 1/1;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .contact-btn-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.4;
+  }
+
+  .contact-btn-text .label {
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .contact-btn-text .number {
+    font-size: 14px;
+  }
+
+  // BTNS Contact Social
+
+  .contact-social {
+    width: 100%;
+    margin: 50px 0px;
+    text-align: left;
+  }
+
+  .contact-social__title {
+    font-size: clamp(1.4rem, 2vw, 1.6rem);
+    margin-bottom: 20px;
+  }
+
+  .container-contact-social-btns {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+  }
+
+  .contact-social-btn {
+    background-color: #e6ebf1;
+    border-radius: 150px;
+    box-shadow:
+      5px 5px 10px #adb0b5,
+      -5px -5px 10px #ffffff;
+    width: 50px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    padding: 12px;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .contact-social-btn:hover {
+    transform: scale(1.2);
+  }
+
+  .contact-social__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .contact-social__icon svg {
+    color: variables.$color-primary;
+  }
+}
+
+//LARGE DESKTOP (1440px+)
+@include mixins.only-large-desktop {
+  .contact {
+    padding: 12px 0 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #f5f7ff 0%, #eef1ff 40%, #e6e9ff 100%);
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  .container-contact {
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .title-contact {
+    margin-top: 120px;
+    color: variables.$color-black;
+    text-align: center;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    text-shadow:
+      4px 4px 4px rgba(0, 0, 0, 0.2),
+      -4px -4px 4px #ffffff;
+  }
+
+  .subtitle-contact {
+    text-align: center;
+    margin: 8px auto 25px auto;
+    font-size: clamp(0.7rem, 2.2vw, 1.6rem);
+    width: 80%;
+    font-weight: 400;
+  }
+
+  .container-contact-form-and-btns {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+    padding: 80px;
+  }
+
+  // FORM
+
+  .container-form {
+    width: 55%;
+    max-width: 700px;
+    box-shadow:
+      6px 6px 12px #c5c5c5,
+      -6px -6px 12px #ffffff;
+  }
+
+  .contact-form {
+    width: 100%;
+    margin: auto;
+    padding: 25px;
+    border-radius: 10px;
+  }
+
+  .contact-form h2 {
+    margin-bottom: 5px;
+  }
+
+  .form-group {
+    margin-bottom: 15px;
+  }
+
+  label {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+
+  input,
+  textarea,
+  select {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    max-height: 300px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    box-shadow:
+      inset 6px 6px 6px rgba(0, 0, 0, 0.2),
+      inset -6px -6px 8px #ffffff;
+  }
+
+  /* ----- BTN Send ---- */
+
+  .btn-send-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .contact-btn-send {
+    width: 135px;
+    height: 60px;
+    font-size: 18px;
+    font-family: "Quicksand", sans-serif;
+    font-weight: 500;
+    color: variables.$color-white;
+
+    /* Fill */
+    background-size: 201% 100%;
+    background-image: linear-gradient(
+      to right,
+      variables.$color-secundary 50%,
+      variables.$color-primary 50%
+    );
+    background-position: 100% 0;
+
+    box-shadow:
+      3px 3px 6px #adb0b5,
+      -3px -3px 6px #ffffff;
+
+    border: none;
+    border-radius: 3px;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    align-items: center;
+    gap: 8px;
+
+    transition:
+      background-position 0.6s ease-out,
+      color 0.3s ease,
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .contact-btn-send:hover {
+    transform: scale(1.05);
+  }
+
+  .contact-btn-send:focus {
+    outline: none;
+    color: variables.$color-white;
+  }
+
+  /* ---- Text ---- */
+
+  .contact-btn-send .text {
+    position: relative;
+    z-index: 2;
+  }
+
+  /* ---- Icons ---- */
+
+  .contact-btn-send-icon {
+    position: relative;
+    z-index: 2;
+  }
+
+  .contact-btn-send-icon svg {
+    width: 18px;
+    height: 18px;
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 0 currentColor) drop-shadow(0 0 0 currentColor);
+  }
+
+  /* ---- States ---- */
+
+  .spaceship {
+    position: absolute;
+    right: 18px;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .visible {
+    display: inline-flex;
+  }
+
+  .done {
+    background-position: 0 0;
+    color: variables.$color-purple-light;
+  }
+
+  /* ---- Animations triggers ---- */
+
+  .fly {
+    position: absolute;
+    animation: flyAnim 1.5s ease-in forwards;
+  }
+
+  .fade {
+    animation: fade 0.6s forwards;
+  }
+
+  /* ---- Check animation ---- */
+
+  .check {
+    opacity: 0;
+    transform: translateY(6px) scale(0.8);
+  }
+
+  .show-check {
+    animation: checkIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
+  /* ---- KEYFRAMES ---- */
+
+  @keyframes fade {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes flyAnim {
+    0% {
+      top: 10px;
+      left: 70px;
+    }
+    100% {
+      top: -1000px;
+      left: 1000px;
+      transform: scale(0.3);
+      opacity: 0;
+    }
+  }
+
+  @keyframes checkIn {
+    0% {
+      opacity: 0;
+      transform: translateY(6px) scale(0.8);
+    }
+    60% {
+      opacity: 1;
+      transform: translateY(-2px) scale(1.1);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  .container-contact-info-social-btns {
+    width: 45%;
+    max-width: 700px;
+    margin-top: 20px;
+  }
+
+  // BTNS Contact
+
+  .contact-info-btns {
+    width: 100%;
+    text-align: left;
+  }
+
+  .contact-btn {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+    border-left: 4px solid transparent;
+    transition:
+      border-color 0.3s ease,
+      padding-left 0.3s ease;
+  }
+
+  .contact-btn:hover {
+    border-left: 4px solid variables.$color-primary;
+    padding-left: 8px;
+  }
+
+  .contact-btn .icon {
+    width: 55px;
+    aspect-ratio: 1/1;
+    background-color: variables.$color-primary;
+    color: variables.$color-purple-light;
+    padding: 8px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .contact-btn .icon svg {
+    display: block;
+    width: 30px;
+    aspect-ratio: 1/1;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .contact-btn-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.4;
+  }
+
+  .contact-btn-text .label {
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .contact-btn-text .number {
+    font-size: 16px;
+  }
+
+  // BTNS Contact Social
+
+  .contact-social {
+    width: 100%;
+    margin: 50px 0px;
+    text-align: left;
+  }
+
+  .contact-social__title {
+    font-size: clamp(1.4rem, 2vw, 1.6rem);
+    margin-bottom: 20px;
+  }
+
+  .container-contact-social-btns {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+  }
+
+  .contact-social-btn {
+    background-color: #e6ebf1;
+    border-radius: 150px;
+    box-shadow:
+      5px 5px 10px #adb0b5,
+      -5px -5px 10px #ffffff;
+    width: 50px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    padding: 12px;
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+  .contact-social-btn:hover {
+    transform: scale(1.2);
+  }
+
+  .contact-social__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .contact-social__icon svg {
+    color: variables.$color-primary;
+  }
+}

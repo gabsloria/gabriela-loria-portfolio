@@ -1,0 +1,17 @@
+/* BASE STYLES */
+@use "variables";
+@use "fonts";
+@use "mixins";
+@use "reset";
+@use "layout";
+@use "animations";
+
+/* COMPONENTS */
+@use "components/global";
+@use "components/menu-navbar";
+@use "components/home";
+@use "components/experience";
+@use "components/skills";
+@use "components/projects";
+@use "components/contact";
+
