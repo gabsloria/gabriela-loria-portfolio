@@ -33,6 +33,8 @@ _(Link coming soon)_
 
 To generate the production-ready files:
 
+npm run build
+
 This will compile Sass and bundle JavaScript into the `dist` folder, which is used for deployment.
 
 ## 📌 About Me

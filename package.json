@@ -9,7 +9,8 @@
     "dev": "npm-run-all --parallel sass js-watch",
     "build:css": "sass src/scss/main.scss dist/css/main.css",
     "build:js": "esbuild src/js/main.js --bundle --minify --outfile=dist/js/main.js",
-    "build": "npm-run-all build:css build:js"
+    "copy-html": "copy index.html dist\\index.html",
+    "build": "npm-run-all build:css build:js copy-html"
   },
   "devDependencies": {
     "chokidar-cli": "^3.0.0",
