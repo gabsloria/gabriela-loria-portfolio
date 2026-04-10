@@ -6,11 +6,12 @@
     "sass": "sass src/scss/main.scss dist/css/main.css --watch",
     "js-build": "esbuild src/js/main.js --bundle --minify --outfile=dist/js/main.js",
     "js-watch": "chokidar \"src/js/**/*.js\" -c \"npm run js-build\" --initial",
-    "dev": "npm-run-all --parallel sass js-watch",
+    "dev": "npm-run-all build --parallel sass js-watch",
     "build:css": "sass src/scss/main.scss dist/css/main.css",
     "build:js": "esbuild src/js/main.js --bundle --minify --outfile=dist/js/main.js",
     "copy-html": "cpy index.html dist --rename=index.html",
-    "build": "npm-run-all build:css build:js copy-html"
+    "copy-img": "cpy src/img/**/* dist/img",
+    "build": "npm-run-all build:css build:js copy-html copy-img"
   },
   "devDependencies": {
     "chokidar-cli": "^3.0.0",
