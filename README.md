@@ -25,9 +25,15 @@ _(Link coming soon)_
 
    npm install
 
-3. Run the development server:
+3. Run the development environment:
 
    npm run dev
+
+## 🏗️ Production Build
+
+To generate the production-ready files:
+
+This will compile Sass and bundle JavaScript into the `dist` folder, which is used for deployment.
 
 ## 📌 About Me
 
