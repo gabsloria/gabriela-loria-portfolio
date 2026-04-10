@@ -6,12 +6,15 @@
     "sass": "sass src/scss/main.scss dist/css/main.css --watch",
     "js-build": "esbuild src/js/main.js --bundle --minify --outfile=dist/js/main.js",
     "js-watch": "chokidar \"src/js/**/*.js\" -c \"npm run js-build\" --initial",
-    "dev": "npm-run-all build --parallel sass js-watch",
+    "img-watch": "chokidar \"src/img/**/*\" -c \"npm run copy-img\" --initial",
+    "assets-watch": "chokidar \"assets/**/*\" -c \"npm run copy-assets\" --initial",
+    "dev": "npm-run-all build --parallel sass js-watch img-watch assets-watch",
     "build:css": "sass src/scss/main.scss dist/css/main.css",
     "build:js": "esbuild src/js/main.js --bundle --minify --outfile=dist/js/main.js",
     "copy-html": "cpy index.html dist --rename=index.html",
-    "copy-img": "cpy src/img/**/* dist/img",
-    "build": "npm-run-all build:css build:js copy-html copy-img"
+    "copy-img": "cpy \"src/img/**/*\" dist/img",
+    "copy-assets": "cpy \"assets/**/*\" dist/assets",
+    "build": "npm-run-all build:css build:js copy-html copy-img copy-assets"
   },
   "devDependencies": {
     "chokidar-cli": "^3.0.0",
