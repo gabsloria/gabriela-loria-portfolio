@@ -2,9 +2,31 @@
 const form = document.querySelector(".contact-form");
 const btn = document.querySelector(".contact-btn-send");
 
-// -------- FORM SUBMIT --------
-form.addEventListener("submit", () => {
-  runButtonAnimation();
+// -------- SUBMIT --------
+form.addEventListener("submit", async function (e) {
+  e.preventDefault();
+
+  try {
+    // Send form to Netlify
+    await fetch("/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: new URLSearchParams(new FormData(form)).toString(),
+    });
+
+    // Run animation
+    runButtonAnimation();
+
+    // Show popup
+    showToast();
+
+    // Reset form
+    form.reset();
+  } catch (error) {
+    console.error("Form submission error:", error);
+  }
 });
 
 // -------- BUTTON ANIMATION --------
@@ -14,22 +36,30 @@ function runButtonAnimation() {
   const text = btn.querySelector(".text");
   const check = btn.querySelector(".check");
 
-  // Show spaceship animation
   spaceship.classList.remove("hidden");
   spaceship.classList.add("fly");
 
-  // Hide default icon
   replace.classList.add("hidden");
 
-  // Change button text
   text.textContent = "SENT";
 
-  // Add completed state
   btn.classList.add("done");
 
-  // Show check icon
   setTimeout(() => {
     check.classList.remove("hidden");
     check.classList.add("show-check");
   }, 700);
+}
+
+// -------- TOAST POPUP --------
+function showToast() {
+  const toast = document.querySelector(".contact-toast");
+
+  if (!toast) return;
+
+  toast.classList.remove("hidden");
+
+  setTimeout(() => {
+    toast.classList.add("hidden");
+  }, 3000);
 }
