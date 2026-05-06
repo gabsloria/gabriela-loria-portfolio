@@ -3,47 +3,75 @@ const form = document.querySelector(".contact-form");
 const btn = document.querySelector(".contact-btn-send");
 
 // -------- SUBMIT --------
-form.addEventListener("submit", function (e) {
+form.addEventListener("submit", async function (e) {
   e.preventDefault();
 
-  // ✅ Validación nativa del navegador
+  // ✅ HTML validation
   if (!form.checkValidity()) {
     form.reportValidity();
-    return; // 🚫 detener si hay errores
+    return;
   }
 
-  // ✅ Desactivar botón para evitar múltiples envíos
-  btn.disabled = true;
+  try {
+    // ✅ Send to Netlify
+    const response = await fetch("/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: new URLSearchParams(new FormData(form)).toString(),
+    });
 
-  // 👉 Aquí luego irá el envío real (EmailJS / backend)
-
-  // Simulación de envío (puedes quitar esto después)
-  setTimeout(() => {
-    runButtonAnimation();
-  }, 300);
+    // ✅ Success
+    if (response.ok) {
+      runButtonAnimation();
+      showToast();
+      form.reset();
+    } else {
+      console.error("Netlify form submission failed.");
+    }
+  } catch (error) {
+    console.error("Network error:", error);
+  }
 });
 
-// -------- Animation --------
+// -------- BUTTON ANIMATION --------
 function runButtonAnimation() {
   const spaceship = btn.querySelector(".spaceship");
   const replace = btn.querySelector(".replace");
   const text = btn.querySelector(".text");
   const check = btn.querySelector(".check");
 
-  // Initial Animation
-  spaceship.classList.add("fly");
+  // 🚀 Show spaceship
   spaceship.classList.remove("hidden");
+  spaceship.classList.add("fly");
 
+  // 🔁 Hide default icon
   replace.classList.add("hidden");
 
+  // ✨ Change text
   text.textContent = "SENT";
   text.classList.add("fade");
 
+  // ✅ Button state
   btn.classList.add("done");
 
-  // Show heck
+  // ✔ Show check
   setTimeout(() => {
     check.classList.remove("hidden");
     check.classList.add("show-check");
-  }, 250);
+  }, 700);
+}
+
+// -------- TOAST POPUP --------
+function showToast() {
+  const toast = document.querySelector(".contact-toast");
+
+  if (!toast) return;
+
+  toast.classList.remove("hidden");
+
+  setTimeout(() => {
+    toast.classList.add("hidden");
+  }, 3000);
 }

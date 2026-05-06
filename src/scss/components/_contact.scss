@@ -335,6 +335,37 @@
   .contact-social__icon svg {
     color: variables.$color-primary;
   }
+
+  //Popup
+
+  .contact-toast {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+
+    padding: 14px 20px;
+    border-radius: 12px;
+
+    background: #111;
+    color: #fff;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    z-index: 9999;
+
+    opacity: 1;
+    transform: translateY(0);
+
+    transition: all 0.3s ease;
+  }
+
+  .contact-toast.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+
+    pointer-events: none;
+  }
 }
 
 //TABLETS (768px - 1023px)
@@ -677,6 +708,37 @@
 
   .contact-social__icon svg {
     color: variables.$color-primary;
+  }
+
+  //Popup
+
+  .contact-toast {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+
+    padding: 14px 20px;
+    border-radius: 12px;
+
+    background: #111;
+    color: #fff;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    z-index: 9999;
+
+    opacity: 1;
+    transform: translateY(0);
+
+    transition: all 0.3s ease;
+  }
+
+  .contact-toast.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+
+    pointer-events: none;
   }
 }
 
@@ -1043,6 +1105,37 @@
   .contact-social__icon svg {
     color: variables.$color-primary;
   }
+
+  //Popup
+
+  .contact-toast {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+
+    padding: 14px 20px;
+    border-radius: 12px;
+
+    background: #111;
+    color: #fff;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    z-index: 9999;
+
+    opacity: 1;
+    transform: translateY(0);
+
+    transition: all 0.3s ease;
+  }
+
+  .contact-toast.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+
+    pointer-events: none;
+  }
 }
 
 //DESKTOP (1280px - 1439px)
@@ -1407,6 +1500,37 @@
 
   .contact-social__icon svg {
     color: variables.$color-primary;
+  }
+
+  //Popup
+
+  .contact-toast {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+
+    padding: 14px 20px;
+    border-radius: 12px;
+
+    background: #111;
+    color: #fff;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    z-index: 9999;
+
+    opacity: 1;
+    transform: translateY(0);
+
+    transition: all 0.3s ease;
+  }
+
+  .contact-toast.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+
+    pointer-events: none;
   }
 }
 
@@ -1773,5 +1897,36 @@
 
   .contact-social__icon svg {
     color: variables.$color-primary;
+  }
+
+  //Popup
+
+  .contact-toast {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+
+    padding: 14px 20px;
+    border-radius: 12px;
+
+    background: #111;
+    color: #fff;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    z-index: 9999;
+
+    opacity: 1;
+    transform: translateY(0);
+
+    transition: all 0.3s ease;
+  }
+
+  .contact-toast.hidden {
+    opacity: 0;
+    transform: translateY(20px);
+
+    pointer-events: none;
   }
 }

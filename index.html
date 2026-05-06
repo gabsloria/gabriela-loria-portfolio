@@ -1232,7 +1232,11 @@
                 name="contact"
                 method="POST"
                 data-netlify="true"
+                data-netlify-honeypot="bot-field"
               >
+                <input type="hidden" name="form-name" value="contact" />
+                <input type="text" name="bot-field" hidden />
+
                 <div class="form-group">
                   <label for="firstName">Name</label>
                   <input
@@ -1603,5 +1607,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="js/main.js"></script>
+
+    <div class="contact-toast hidden">Message sent successfully 🚀</div>
   </body>
 </html>
