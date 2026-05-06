@@ -5,11 +5,14 @@
 @include mixins.only-mobile {
   .projects {
     min-height: 100vh;
-    padding: 34px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .container-projects {
     text-align: center;
+    width: 99.8%;
   }
 
   .title-projects {
@@ -72,11 +75,14 @@
     border-radius: 20px;
     width: 100%;
     height: 48%;
+    overflow: hidden;
   }
 
   .projects-cards-container-img img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
   .projects-cards-title {
@@ -180,7 +186,9 @@
 @include mixins.only-tablet {
   .projects {
     min-height: 100vh;
-    padding: 34px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .container-projects {
@@ -247,11 +255,14 @@
     border-radius: 20px;
     width: 100%;
     height: 48%;
+    overflow: hidden;
   }
 
   .projects-cards-container-img img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
   .projects-cards-title {
@@ -355,7 +366,9 @@
 @include mixins.only-small-laptops {
   .projects {
     min-height: 100vh;
-    padding: 34px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .container-projects {
@@ -422,11 +435,14 @@
     border-radius: 20px;
     width: 100%;
     height: 48%;
+    overflow: hidden;
   }
 
   .projects-cards-container-img img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
   .projects-cards-title {
@@ -537,7 +553,10 @@
 @include mixins.only-desktop {
   .projects {
     min-height: 100vh;
-    padding: 150px 0px 0px 0px;
+    padding: 130px 0px 0px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .container-projects {
@@ -604,11 +623,14 @@
     border-radius: 20px;
     width: 100%;
     height: 48%;
+    overflow: hidden;
   }
 
   .projects-cards-container-img img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
   .projects-cards-title {
@@ -719,7 +741,10 @@
 @include mixins.only-large-desktop {
   .projects {
     min-height: 100vh;
-    padding: 170px 0px 0px 0px;
+    padding: 130px 0px 0px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .container-projects {
@@ -786,11 +811,14 @@
     border-radius: 20px;
     width: 100%;
     height: 48%;
+    overflow: hidden;
   }
 
   .projects-cards-container-img img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
+    display: block;
   }
 
   .projects-cards-title {
